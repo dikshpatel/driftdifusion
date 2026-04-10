@@ -1,0 +1,10 @@
+Layer,Material,Thickness (nm),Trap Energy (eV),Notes
+1,Au,100,5.1,Top electrode
+2,Spiro,50,2.5,Transport layer
+3,interface1,, ,Layer interface
+4,CsPbI3,400,1.7,Light absorbing layer
+5,interface2,, ,Layer interface
+6,MAPbI3,400,1.6,Light absorbing layer
+7,interface3,, ,Layer interface
+8,TiO2,50,3.2,Electron transport layer
+9,FTO,200,4.0,Transparent conducting oxide
