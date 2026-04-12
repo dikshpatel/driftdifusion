@@ -368,7 +368,7 @@ hold on;
 plot(xnm, E_oc * 1e-4, 'r--', 'DisplayName', 'Near V_{oc}');
 hold off;
 xlabel('Position  x  [nm]');
-ylabel('Electric Field  E  [V \mum^{-1}]');
+ylabel('Electric Field  E  [V/cm × 10^{4}]');
 title('Electric Field Profile — CsPbI_3/MAPbI_3 Bilayer');
 legend('Location', 'best');
 xlim([0, xnm(end)]);
@@ -480,7 +480,7 @@ C_dQdV(C_dQdV <= 0) = eps;
 % Parameters from pinParams
 NA_eff  = p.NA;
 ND_eff  = p.ND;
-N_eff   = 2 * NA_eff * ND_eff / (NA_eff + ND_eff + eps);
+N_eff   = 2 * NA_eff * ND_eff / (NA_eff + ND_eff + 1e10);
 Vbi_param = p.Vbi;
 
 V_CV  = linspace(min(Vapp_light), 0.95 * Voc, 200);
@@ -505,7 +505,7 @@ else
 end
 
 % Depletion width at zero bias
-W_dep = sqrt(2 * eps_i * Vbi_MS / (q_C * max(NA_MS, 1)));
+W_dep = sqrt(2 * eps_i * Vbi_MS / (q_C * max(NA_MS, 1e10)));
 
 fprintf('  Vbi (Mott-Schottky fit) = %.4f V\n', Vbi_MS);
 fprintf('  NA  (Mott-Schottky fit) = %.3e cm^{-3}\n', NA_MS);
@@ -647,7 +647,7 @@ results.x_nm = xnm;
 
 fprintf('\n');
 fprintf('================================================================\n');
-fprintf('  Device Characterisation Report — CsPbI3/MAPbI3 Bilayer\n');
+fprintf('  Device Characterization Report — CsPbI3/MAPbI3 Bilayer\n');
 fprintf('================================================================\n');
 fprintf('  Device geometry:\n');
 fprintf('    p-type thickness  = %g nm\n',   p.tp * 1e7);
